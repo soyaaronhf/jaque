@@ -1,0 +1,18 @@
+<div class="navbar__container">
+  <ul class="navbar__list">
+    <li class="navbar__item" *ngFor="let item of menu">
+      <a class="navbar__link" [routerLink]="['/'+item.slug+'']" routerLinkActive="active" >
+        <img class="navbar__icon" [src]='"assets/navbar/"+item.icon+".png"' [alt]="item.name">
+        {{ item.name }}
+      </a>
+    </li>
+  </ul>
+  <footer class="navbar__footer">
+    <small class="navbar__copyright">
+      © Jaque 2008
+      <span>
+        Todos los derecho reservados
+      </span>
+    </small>
+  </footer>
+</div>
