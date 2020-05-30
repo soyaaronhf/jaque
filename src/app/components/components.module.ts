@@ -3,18 +3,22 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { UsersHeaderComponent } from './users-header/users-header.component';
+import { UsersTableComponent } from './users-table/users-table.component';
+import { AppRoutingModule } from '../app-routing.module';
 
 
 
 @NgModule({
-  declarations: [HeaderComponent, SidebarComponent, UsersHeaderComponent],
+  declarations: [HeaderComponent, SidebarComponent, UsersHeaderComponent, UsersTableComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    AppRoutingModule
   ],
   exports: [
     HeaderComponent,
     SidebarComponent,
-    UsersHeaderComponent
+    UsersHeaderComponent,
+    UsersTableComponent,
   ]
 })
 export class ComponentsModule { }
