@@ -3,4 +3,8 @@
     display: grid;
     grid-template-columns: 250px auto;
   }
+  &__page{
+    background: #f7f7f7;
+    padding: 40px;
+  }
 }
