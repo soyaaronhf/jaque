@@ -1,0 +1,27 @@
+<div class="users-table-header__container">
+  <div class="users-table-header__search">
+    <img class="users-table-header__search-icon" src="assets/users/search.svg" alt="search icon">
+    <input #inputSearch (keyup)="search(inputSearch.value)" class="users-table-header__input" type="text" placeholder="Búsqueda">
+  </div>
+  <div class="users-table-header__filter">
+    <div>
+      <select class="users-table-header__select mr-10">
+        <option value="8">8 por página</option>
+      </select>
+      <select class="users-table-header__select mr-10">
+        <option value="a-z">Ordenar de A - Z</option>
+      </select>
+      <select class="users-table-header__select mr-20">
+        <option value="all">Todos</option>
+      </select> 
+    </div>
+    <div class="users-table-header__views">
+      <button (click)="changeView('list')" class="users-table-header__btn mr-10">
+        <img class="users-table-header__icon" src="assets/users/list.svg" alt="list">
+      </button>
+      <button (click)="changeView('squares')" class="users-table-header__btn">
+        <img class="users-table-header__icon" src="assets/users/square.svg" alt="square">
+      </button>
+    </div>
+  </div>
+</div>

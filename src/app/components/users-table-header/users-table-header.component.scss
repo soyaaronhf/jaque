@@ -1,0 +1,71 @@
+@import "../../../variables";
+.users-table-header{
+  &__container{
+    padding: 20px 40px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__input{
+    background: $input-bg;
+    border-radius: 2px;
+    border:1px solid $border-color;
+    padding: 15px 15px 15px 50px;
+    font-size: 14px;
+    font-weight: normal;
+    color: $users-table-header-color;
+    line-height: 18px;
+    box-shadow: 0 0 16px rgba(0,0,0,0.04);
+    width: 100%;
+  }
+  &__search{
+    position: relative;
+    flex:0 1 350px;
+    @media screen and (max-width:$break-lg) {
+      flex:0 0 100%;
+      margin-bottom: 20px;
+    }
+  }
+  &__search-icon{
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+  }
+  &__select{
+    background: $input-bg url("../../../assets/header/arrow.svg") no-repeat right 15px center/10px 15px;
+    appearance: none;
+    border-radius: 2px;
+    border:1px solid $border-color;
+    padding: 15px 40px 15px 15px;
+    font-size: 14px;
+    font-weight: normal;
+    color: $users-table-header-color;
+    line-height: 18px;
+    box-shadow: 0 0 16px rgba(0,0,0,0.04);
+  }
+  &__filter{
+    flex:0 1 auto;
+    display: flex;
+    @media screen and (max-width:$break-lg) {
+      flex:0 0 100%;
+      justify-content: space-between;
+    }
+  }
+  &__views{
+    display: inline-flex;
+    align-items: center;
+  }
+  &__btn{
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+  &__icon{
+    width: 20px;
+  }
+}

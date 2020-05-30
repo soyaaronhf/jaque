@@ -1,0 +1,8 @@
+@import "../../../variables";
+.users-table{
+  &__container{
+    background: $header-bg;
+    border:1px solid $border-color;
+    box-shadow: 0 0 16px rgba(0,0,0,0.04);
+  }
+}
