@@ -3,7 +3,9 @@
     <li class="navbar__item" *ngFor="let item of menu">
       <a class="navbar__link" [routerLink]="['/'+item.slug+'']" routerLinkActive="active" >
         <img class="navbar__icon" [src]='"assets/navbar/"+item.icon+".png"' [alt]="item.name">
-        {{ item.name }}
+        <span>
+          {{ item.name }}
+        </span>
       </a>
     </li>
   </ul>

@@ -9,6 +9,9 @@
     min-height: calc(100vh - 65px);
     border-right: 1px solid $border-color;
     background: $navbar-bg;
+    @media screen and (max-width:$break-lg) {
+     display: block;
+    }
   }
   &__list{
     margin: 0;
@@ -31,6 +34,11 @@
     &.active{
       border-left: 3px solid $orange;
     }
+    @media screen and (max-width:$break-lg) {
+      & span{
+        display: none;
+      }
+    }
   }
   &__icon{
     width: 15px;
@@ -38,6 +46,9 @@
   }
   &__footer{
     padding: 0 20px 50px;
+    @media screen and (max-width:$break-lg) {
+      display: none;
+    }
   }
   &__copyright{
     color: $navbar-copyright-color;
