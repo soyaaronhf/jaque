@@ -10,7 +10,7 @@
       <img class="users-header__icon" src="assets/button/eye.svg">
       Previsualizar
     </button>
-    <button class="users-header__btn orange">
+    <button (click)="modalService.showModal('user')" class="users-header__btn orange">
       <img class="users-header__icon" src="assets/button/plus.svg">
       Agregar un nuevo usuario
     </button>

@@ -6,7 +6,8 @@ import { Injectable } from '@angular/core';
 export class ModalService {
 
   modals:object = {
-    activeUsers:false
+    activeUsers:false,
+    user:false
   };
 
   showModal(modal:string){

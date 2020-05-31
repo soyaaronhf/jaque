@@ -10,6 +10,7 @@ import { UsersTableListComponent } from './users-table-list/users-table-list.com
 import { ExcerptPipe } from '../pipes/excerpt.pipe';
 import { ToggleButtonComponent } from './toggle-button/toggle-button.component';
 import { ModalActiveUsersComponent } from './modal-active-users/modal-active-users.component';
+import { ModalUserComponent } from './modal-user/modal-user.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { ModalActiveUsersComponent } from './modal-active-users/modal-active-use
     UsersTableListComponent,
     ExcerptPipe,
     ToggleButtonComponent,
-    ModalActiveUsersComponent
+    ModalActiveUsersComponent,
+    ModalUserComponent
   ],
   imports: [
     CommonModule,

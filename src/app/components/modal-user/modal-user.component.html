@@ -1,0 +1,60 @@
+<div *ngIf="modalService.modals.user" class="modal__overlay">
+  <div class="modal__wrapper">
+    <div class="modal__container">
+      <div class="modal__header">
+        <h4 class="modal__title">
+          Agregar nuevo usuario
+        </h4>
+      </div>
+      <div class="modal__body">
+        <p class="modal__title-label">
+          Foto de perfil
+        </p>
+        <div class="modal__profile-picture-container">
+          <div class="modal__img-container">
+            <img src="assets/header/user.png" alt="profile picture" class="modal__img">
+            <div class="modal__img-edit">
+              <img src="assets/users/edit.svg" alt="edit">
+            </div>
+          </div>
+          <div>
+            <p class="modal__label">
+              JPG, PNG | Tamaño mínimo de 300px x 300px
+            </p>
+            <button class="modal__orange-btn sm">
+              Subir foto
+            </button>
+          </div>
+        </div>
+        <p class="modal__title-label">
+          Información básica
+        </p>
+        <form class="modal__form">
+          <input class="modal__input" type="text" placeholder="Nombre">
+          <input class="modal__input" type="text" placeholder="Apellido Paterno">
+          <input class="modal__input" type="text" placeholder="Apellido Materno">
+          <input class="modal__input" type="text" placeholder="Correo electrónico">
+          <select class="modal__select">
+            <option>Rol</option>
+            <option *ngFor="let rol of getRoles(userService.roles)">
+              {{userService.roles[rol]}}
+            </option>
+          </select>
+          <div class="modal__status">
+            <label class="modal__status-label mr-10">Inactivo</label>
+            <app-toggle-button class="mr-10" [status]="false"></app-toggle-button>
+            <label class="modal__status-label">Activo</label>
+          </div>
+        </form>
+      </div>
+      <div class="modal__actions">
+        <button class="modal__close-btn mr-20" (click)="modalService.closeModal('user')">
+          Cancelar
+        </button>
+        <button class="modal__orange-btn" (click)="modalService.closeModal('user')">
+          Guardar usuario
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
