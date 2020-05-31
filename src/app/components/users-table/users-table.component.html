@@ -1,6 +1,17 @@
 <div class="users-table__container">
-  <app-users-table-header></app-users-table-header>
-  <p>
-    {{data}}
-  </p>
+  <app-users-table-header
+    (keyword)="userService.search($event)"
+    (view)="userService.changeView($event)"
+  ></app-users-table-header>
+  <div *ngIf="!userService.results;else results">
+    <p *ngFor="let item of userService.users">
+      {{item.name}}
+    </p>
+  </div>
+  <div #results>
+    <p *ngFor="let item of userService.results">
+      {{item.name}}
+    </p>
+  </div>
+
 </div>
