@@ -2,10 +2,11 @@
   <app-users-table-header
     (keyword)="userService.search($event)"
     (view)="changeView($event)"
+    (filter)="filter($event)"
   ></app-users-table-header>
   <app-users-table-list
     *ngIf="view==='list'"
-    [data]="!userService.results ? userService.users : userService.results"
+    [data]="!filterData ? !userService.results ? userService.users : userService.results : filterData"
     [roles]="userService.roles"
     (changeUserStatus)="userService.changeStatus($event)"
     (deleteUser)="userService.deleteUser($event)"

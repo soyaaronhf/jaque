@@ -7,12 +7,16 @@ import { Component, Output, EventEmitter } from '@angular/core';
 })
 export class UsersTableHeaderComponent {
   
-  @Output() keyword: EventEmitter<string>
-  @Output() view: EventEmitter<string>
+  @Output() keyword: EventEmitter<string>;
+  @Output() view: EventEmitter<string>;
+  @Output() filter: EventEmitter<object>;
+
+  filterParams:object = null
 
   constructor(){
     this.keyword = new EventEmitter();
     this.view = new EventEmitter();
+    this.filter = new EventEmitter();
   }
 
   search( keyword:string ){    
@@ -25,6 +29,12 @@ export class UsersTableHeaderComponent {
 
   changeView( view:string ){
     this.view.emit(view);
+  }
+
+  setfilter(filter:object){
+    this.filterParams = {...this.filterParams,...filter}
+    this.filter.emit(this.filterParams);
+    console.log(this.filterParams);
   }
 
 }

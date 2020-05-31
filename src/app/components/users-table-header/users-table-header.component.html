@@ -8,11 +8,16 @@
       <select class="users-table-header__select mr-10">
         <option value="8">8 por página</option>
       </select>
-      <select class="users-table-header__select mr-10">
+      <select #selectOrder (change)="setfilter({order:selectOrder.value})" class="users-table-header__select mr-10">
+        <option selected disabled>Orden</option>
         <option value="a-z">Ordenar de A - Z</option>
+        <option value="z-a">Ordenar de Z - A</option>
       </select>
-      <select class="users-table-header__select mr-20">
+      <select #selectStatus (change)="setfilter({rol:selectStatus.value})" class="users-table-header__select mr-20">
         <option value="all">Todos</option>
+        <option value="1">Dueño</option>
+        <option value="2">Administrador</option>
+        <option value="3">Staff</option>
       </select> 
     </div>
     <div class="users-table-header__views">
