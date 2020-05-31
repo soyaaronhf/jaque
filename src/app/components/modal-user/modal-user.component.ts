@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ModalService } from 'src/app/services/modal.service';
 import { UserService } from 'src/app/services/users.service';
+import { MessageService } from 'src/app/services/message.service';
 @Component({
   selector: 'app-modal-user',
   templateUrl: './modal-user.component.html',
@@ -22,7 +23,11 @@ export class ModalUserComponent {
     active: new FormControl()
   });
 
-  constructor(public modalService:ModalService, public userService:UserService) {
+  constructor(
+    public modalService:ModalService,
+    public userService:UserService,
+    public messageService:MessageService
+    ) {
   }
 
   getRoles(roles:object){
@@ -40,6 +45,10 @@ export class ModalUserComponent {
       this.userService.newUser(this.profileForm.value);
       this.modalService.closeModal('user');
       this.cleanForm();
+      this.messageService.showMessage('Se guardó el usuario exitosamente');
+      setTimeout(() => {
+        this.messageService.closeMessage()
+      }, 2000);
     }else{
       this.error = true
     }

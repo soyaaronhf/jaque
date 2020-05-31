@@ -12,6 +12,7 @@ import { ExcerptPipe } from '../pipes/excerpt.pipe';
 import { ToggleButtonComponent } from './toggle-button/toggle-button.component';
 import { ModalActiveUsersComponent } from './modal-active-users/modal-active-users.component';
 import { ModalUserComponent } from './modal-user/modal-user.component';
+import { MessageComponent } from './message/message.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ModalUserComponent } from './modal-user/modal-user.component';
     ExcerptPipe,
     ToggleButtonComponent,
     ModalActiveUsersComponent,
-    ModalUserComponent
+    ModalUserComponent,
+    MessageComponent
   ],
   imports: [
     CommonModule,

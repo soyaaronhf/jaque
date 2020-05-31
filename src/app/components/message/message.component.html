@@ -1,0 +1,8 @@
+<div *ngIf="messageService.show" class="message__wrapper">
+  <div class="message__container">
+    <img class="message__icon" src="assets/users/success.svg" alt="success">
+    <span class="message__text">
+      {{ messageService.message }}
+    </span>
+  </div>
+</div>
