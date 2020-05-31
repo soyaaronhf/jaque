@@ -6,7 +6,7 @@
     </p>
   </div>
   <div class="users-header__actions">
-    <button class="users-header__btn mr-20 white">
+    <button (click)="modalService.showModal('activeUsers')" class="users-header__btn mr-20 white">
       <img class="users-header__icon" src="assets/button/eye.svg">
       Previsualizar
     </button>

@@ -12,7 +12,7 @@
   }
   &__text{
     display: inline-block;
-    @media screen and (max-width:$break-lg) {
+    @media screen and (max-width:$break-md) {
       flex:0 0 100%;
       margin-bottom: 20px;
     }
@@ -33,7 +33,7 @@
   }
   &__actions{
     margin-left: auto!important;
-    @media screen and (max-width:$break-lg) {
+    @media screen and (max-width:$break-md) {
       flex:0 0 100%;
     }
   }

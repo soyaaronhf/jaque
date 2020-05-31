@@ -1,0 +1,32 @@
+<div *ngIf="modalService.modals.activeUsers" class="modal__overlay">
+  <div class="modal__wrapper">
+    <div class="modal__container">
+      <div class="modal__header">
+        <h4 class="modal__title">Usuarios</h4>
+        <p class="modal__description">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        </p>
+      </div>
+      <div class="modal__body">
+        <div *ngFor="let user of getActiveUsers(userService.users)" class="modal__card">
+          <div class="modal__img-container">
+            <img class="modal__img" [src]="user.picture" [alt]="user.name">
+          </div>
+          <div class="modal__description">
+            <p class="modal__name">
+              {{ user.name }} {{ user.fathersLastName }} {{ user.mothersLastName }}
+            </p>
+            <p class="modal__email">
+              {{ user.email | excerpt:20 }}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="modal__actions">
+        <button class="modal__close-btn" (click)="modalService.closeModal('activeUsers')">
+          Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

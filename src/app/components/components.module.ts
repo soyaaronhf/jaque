@@ -9,6 +9,7 @@ import { UsersTableHeaderComponent } from './users-table-header/users-table-head
 import { UsersTableListComponent } from './users-table-list/users-table-list.component';
 import { ExcerptPipe } from '../pipes/excerpt.pipe';
 import { ToggleButtonComponent } from './toggle-button/toggle-button.component';
+import { ModalActiveUsersComponent } from './modal-active-users/modal-active-users.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { ToggleButtonComponent } from './toggle-button/toggle-button.component';
     UsersTableHeaderComponent,
     UsersTableListComponent,
     ExcerptPipe,
-    ToggleButtonComponent
+    ToggleButtonComponent,
+    ModalActiveUsersComponent
   ],
   imports: [
     CommonModule,
