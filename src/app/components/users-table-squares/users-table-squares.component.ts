@@ -14,6 +14,8 @@ export class UsersTableSquaresComponent {
 
   @Input() data:User[];
   @Input() roles:object;
+  @Input() perPage:number = 8;
+  @Input() page:number = 1;
   
   constructor(public modalService:ModalService) {
     this.changeUserStatus = new EventEmitter();
@@ -26,6 +28,10 @@ export class UsersTableSquaresComponent {
 
   delete(user:User){    
     this.deleteUser.emit(user);
+  }
+
+  getDataPage(){
+    return this.data.slice( (this.page-1)*this.perPage, this.page*this.perPage )
   }
 
 }

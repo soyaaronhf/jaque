@@ -1,5 +1,5 @@
 <div *ngIf="!results" class="users-table-squares__container">
-  <div class="users-table-squares__card" *ngFor="let user of data">
+  <div class="users-table-squares__card" *ngFor="let user of getDataPage()">
     <div class="users-table-squares__content">
       <span class="users-table-squares__dragger">
         <img src="assets/users/points.svg" alt="points">
