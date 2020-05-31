@@ -8,7 +8,7 @@ export class ModalService {
 
   tempUser:User;
 
-  modals:object = {
+  public modals:any = {
     activeUsers:false,
     user:false
   };

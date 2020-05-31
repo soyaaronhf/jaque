@@ -8,8 +8,6 @@ import { UserService } from "../../services/users.service";
 })
 export class UsersComponent implements OnInit {
 
-  view:string = 'list';
-
   constructor(private userService:UserService) { }
 
   ngOnInit(): void {
