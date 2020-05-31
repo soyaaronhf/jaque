@@ -6,11 +6,12 @@ import { UsersHeaderComponent } from './users-header/users-header.component';
 import { UsersTableComponent } from './users-table/users-table.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { UsersTableHeaderComponent } from './users-table-header/users-table-header.component';
+import { UsersTableListComponent } from './users-table-list/users-table-list.component';
 
 
 
 @NgModule({
-  declarations: [HeaderComponent, SidebarComponent, UsersHeaderComponent, UsersTableComponent, UsersTableHeaderComponent],
+  declarations: [HeaderComponent, SidebarComponent, UsersHeaderComponent, UsersTableComponent, UsersTableHeaderComponent, UsersTableListComponent],
   imports: [
     CommonModule,
     AppRoutingModule

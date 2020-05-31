@@ -1,0 +1,50 @@
+<div class="users-table-list__container">
+  <table class="users-table-list__table">
+    <thead class="users-table-list__header">
+      <tr>
+        <th width="60"></th>
+        <th width="80">Foto</th>
+        <th>Nombre</th>
+        <th>Apellido paterno</th>
+        <th>Apellido materno</th>
+        <th>Correo</th>
+        <th>Rol</th>
+        <th>Status</th>
+        <th width="100"></th>
+      </tr>
+    </thead>
+    <tbody class="users-table-list__body">
+      <tr *ngFor="let user of data">
+        <td>
+          <img class="users-table-list__points" src="assets/users/points.svg" alt="points">
+        </td>
+        <td>
+          <div class="users-table-list__img-container">
+            <img class="users-table-list__img" [src]="user.picture" alt="picture">
+          </div>
+        </td>
+        <td>
+          {{user.name}}
+        </td>
+        <td>
+          {{user.fathersLastName}}
+        </td>
+        <td>
+          {{user.mothersLastName}}
+        </td>
+        <td>
+          {{user.email}}
+        </td>
+        <td>
+          {{user.roleId}}
+        </td>
+        <td>
+          {{user.active}}
+        </td>
+        <td>
+          Actions
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

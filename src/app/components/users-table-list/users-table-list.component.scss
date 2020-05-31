@@ -1,0 +1,64 @@
+@import "../../../variables";
+.users-table-list{
+  &__container{
+    display: block;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  &__table{
+    width: 100%;
+    overflow-x: auto;
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  &__header{
+    & tr{
+      border-top: 1px solid $border-color;
+      & th {
+        color: $users-table-list-color;
+        font-size: 14px;
+        font-weight: bold;
+        line-height: 18px;
+        text-align: left;
+        height: 65px;
+        white-space: nowrap;
+      }
+    }
+  }
+  &__body{
+    & tr{
+      border-top: 1px solid $border-color;
+      & td {
+        color: $users-table-list-color;
+        font-size: 14px;
+        line-height: 18px;
+        font-weight: normal;
+        height: 65px;
+        white-space: nowrap;
+      }
+      &:hover{
+        background: $input-bg;
+      }
+    }
+  }
+  &__img-container{
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    border-radius: 50%;
+    position: relative;
+  }
+  &__img{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+  &__points{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
