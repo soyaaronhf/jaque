@@ -39,6 +39,9 @@
       }
       &:hover{
         background: $input-bg;
+        & .users-table-list__button{
+          display: inline-block;
+        }
       }
     }
   }
@@ -60,5 +63,14 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
+  }
+  &__button{
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: none;
+  }
+  &__icon{
+    width: 20px;
   }
 }

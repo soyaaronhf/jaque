@@ -9,6 +9,7 @@ import { User } from 'src/app/services/users.service';
 export class UsersTableListComponent {
 
   @Output() changeUserStatus: EventEmitter<User>;
+  @Output() deleteUser: EventEmitter<User>;
 
 
   @Input() data:User[];
@@ -16,10 +17,15 @@ export class UsersTableListComponent {
   
   constructor() {
     this.changeUserStatus = new EventEmitter();
+    this.deleteUser = new EventEmitter();
   }
 
   changeStatus(user:User){
     this.changeUserStatus.emit(user);
+  }
+
+  delete(user:User){    
+    this.deleteUser.emit(user);
   }
 
 }

@@ -16,7 +16,9 @@ export class UserService {
   
   getUsers() {
     this.http.get<User[]>(this.usersUrl).subscribe(
-      (data: any) => this.users = data.users,
+      (data: any) => this.users = data.users.map((user,i)=>{
+        return{ id:i++,...user}
+      }),
       error => this.error = error
     );
   }
@@ -40,12 +42,13 @@ export class UserService {
     this.users.splice(this.users.indexOf(user), 1);
   }
 
-  changeStatus(user:User){
+  changeStatus( user:User ){
     this.users[this.users.indexOf(user)].active = !user.active;  
   }
 }
 
 export interface User{
+  id?:number,
   picture: string,
   name: string,
   fathersLastName:string,

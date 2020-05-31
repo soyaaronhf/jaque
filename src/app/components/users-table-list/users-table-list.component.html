@@ -42,7 +42,12 @@
           <app-toggle-button (change)="changeStatus(user)" [status]="user.active"></app-toggle-button>
         </td>
         <td>
-          Actions
+          <button class="users-table-list__button mr-10">
+            <img class="users-table-list__icon" src="assets/users/edit.svg" alt="edit">
+          </button>
+          <button (click)="delete(user)" class="users-table-list__button">
+            <img class="users-table-list__icon" src="assets/users/trash.svg" alt="trash">
+          </button>
         </td>
       </tr>
     </tbody>
