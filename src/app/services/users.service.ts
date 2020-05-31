@@ -9,7 +9,7 @@ export class UserService {
 
   error: any;
   users: User[] = [];
-  roles: Rol[] = [];
+  roles: object = {};
   results: User[] | boolean = false;
 
   constructor(private http: HttpClient) { }
@@ -23,7 +23,11 @@ export class UserService {
 
   getRoles() {
     this.http.get<Rol[]>(this.rolesUrl).subscribe(
-      (data: any) => this.roles = data.roles,
+      (data: any) => {
+        data.roles.map(rol=>{
+          this.roles[rol.id] = rol.position
+        })
+      },
       error => this.error = error
     );
   }

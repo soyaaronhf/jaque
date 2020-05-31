@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { User } from 'src/services/users.service';
+import { User } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-users-table-list',
@@ -8,7 +8,8 @@ import { User } from 'src/services/users.service';
 })
 export class UsersTableListComponent implements OnInit {
 
-  @Input() data:User[]
+  @Input() data:User[];
+  @Input() roles:object;
   
   constructor() { }
 

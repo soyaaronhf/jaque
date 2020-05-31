@@ -24,22 +24,22 @@
           </div>
         </td>
         <td>
-          {{user.name}}
+          {{ user.name }}
         </td>
         <td>
-          {{user.fathersLastName}}
+          {{ user.fathersLastName }}
         </td>
         <td>
-          {{user.mothersLastName}}
+          {{ user.mothersLastName }}
         </td>
         <td>
-          {{user.email}}
+          {{ user.email | excerpt:20 }}
         </td>
         <td>
-          {{user.roleId}}
+          {{ roles[user.roleId] }}
         </td>
         <td>
-          {{user.active}}
+          {{ user.active }}
         </td>
         <td>
           Actions

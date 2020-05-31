@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { User } from 'src/services/users.service';
-import { UserService } from "src/services/users.service";
+import { User } from 'src/app/services/users.service';
+import { UserService } from "src/app/services/users.service";
 
 @Component({
   selector: 'app-users-table',
@@ -9,7 +9,7 @@ import { UserService } from "src/services/users.service";
 })
 export class UsersTableComponent {
   
-  constructor(private userService:UserService) { }
+  constructor(public userService:UserService) { }
 
   ngOnInit(): void {
   }

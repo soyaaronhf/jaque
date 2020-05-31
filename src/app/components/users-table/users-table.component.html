@@ -1,9 +1,9 @@
 <div class="users-table__container">
   <app-users-table-header
     (keyword)="userService.search($event)"
-    (view)="userService.changeView($event)"
   ></app-users-table-header>
   <app-users-table-list
     [data]="!userService.results ? userService.users : userService.results"
+    [roles]="userService.roles"
   ></app-users-table-list>
 </div>
