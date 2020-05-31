@@ -168,7 +168,7 @@
     line-height: 18px;
     box-shadow: 0 0 16px rgba($color: #000000, $alpha: .04);
     width: 100%;
-    &:focus{
+    &:focus, &.fill{
       & ~ span{
         transform: translate(0,-250%);
         font-size: 12px;
@@ -198,6 +198,15 @@
     color: $users-table-header-color;
     line-height: 18px;
   }
+  &__error{
+    width: 100%;
+    padding: 20px 40px;
+    background: #f8d7da;
+    & small{
+      font-weight: bold;
+      color: #721c24;
+    }
+  }
 }
 @keyframes fadeIn{
   from{
@@ -215,5 +224,51 @@
   to{
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+@import "../../../variables";
+.toggle-button {
+  position: relative;
+  display: inline-block;
+  width: 35px;
+  height: 20px;
+  &__input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+    &:checked + .toggle-button__slider {
+      background-color: $toggle-button-bg-active;
+    }
+    &:focus + .toggle-button__slider {
+      box-shadow: 0 0 1px rgba($color: #000000, $alpha: .04);
+    }
+    &:checked + .toggle-button__slider:before {
+      transform: translateX(20px);
+    }
+  }
+  &__slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $toggle-button-bg;
+    border: 1px solid $toggle-button-border;
+    border-radius: 35px;
+    transition: .4s;
+    &:before {
+      position: absolute;
+      content: "";
+      height: 20px;
+      width: 20px;
+      left: -3px;
+      bottom: -1px;
+      background-color: white;
+      border: 1px solid $toggle-button-border;
+      transition: .4s;
+      border-radius: 50%;
+    }
   }
 }

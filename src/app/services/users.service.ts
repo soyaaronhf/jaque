@@ -45,10 +45,13 @@ export class UserService {
   changeStatus( user:User ){
     this.users[this.users.indexOf(user)].active = !user.active;  
   }
+
+  newUser(user:User){
+    this.users.push(user);
+  }
 }
 
 export interface User{
-  id?:number,
   picture: string,
   name: string,
   fathersLastName:string,

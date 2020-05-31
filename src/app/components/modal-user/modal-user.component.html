@@ -1,6 +1,6 @@
 <div *ngIf="modalService.modals.user" class="modal__overlay">
   <div class="modal__wrapper">
-    <div class="modal__container">
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="modal__container">
       <div class="modal__header">
         <h4 class="modal__title">
           Agregar nuevo usuario
@@ -29,52 +29,60 @@
         <p class="modal__title-label">
           Información básica
         </p>
-        <form class="modal__form">
+        <div  class="modal__form">
           <div class="modal__input-content">
             <label class="modal__input-label">
-              <input class="modal__input" type="text">
+              <input #name [class.fill]="name.value" formControlName="name" class="modal__input" type="text">
               <span>Nombre</span>
             </label>
           </div>
           <div class="modal__input-content">
             <label class="modal__input-label">
-              <input class="modal__input" type="text">
+              <input #fathersLastName [class.fill]="fathersLastName.value" formControlName="fathersLastName" class="modal__input" type="text">
               <span>Apellido Paterno</span>
             </label>
           </div>
           <div class="modal__input-content">
             <label class="modal__input-label">
-              <input class="modal__input" type="text">
+              <input #mothersLastName [class.fill]="mothersLastName.value" formControlName="mothersLastName" class="modal__input" type="text">
               <span>Apellido Materno</span>
             </label>
           </div>
           <div class="modal__input-content">
             <label class="modal__input-label">
-              <input class="modal__input" type="text">
+              <input #email [class.fill]="email.value" formControlName="email" class="modal__input" type="text">
               <span>Correo electrónico</span>
             </label>
           </div>
-          <select class="modal__select">
-            <option>Rol</option>
-            <option *ngFor="let rol of getRoles(userService.roles)">
+          <select formControlName="roleId" class="modal__select">
+            <option value="null">Rol</option>
+            <option *ngFor="let rol of getRoles(userService.roles)" [value]="rol">
               {{userService.roles[rol]}}
             </option>
           </select>
           <div class="modal__status">
             <label class="modal__status-label mr-10">Inactivo</label>
-            <app-toggle-button class="mr-10" [status]="false"></app-toggle-button>
+            <div>
+              <label class="toggle-button mr-10">
+                <input formControlName="active" class="toggle-button__input" type="checkbox">
+                <span class="toggle-button__slider"></span>
+              </label>
+            </div>
             <label class="modal__status-label">Activo</label>
           </div>
-        </form>
+        </div>
+      </div>
+      <div *ngIf="error" class="modal__error">
+        <small>Parece que hay algunos errores</small>
       </div>
       <div class="modal__actions">
-        <button class="modal__close-btn mr-20" (click)="modalService.closeModal('user')">
+        <button class="modal__close-btn mr-20" (click)="cleanForm();modalService.closeModal('user')">
           Cancelar
         </button>
-        <button class="modal__orange-btn" (click)="modalService.closeModal('user')">
+        <button class="modal__orange-btn" type="submit">
           Guardar usuario
         </button>
       </div>
-    </div>
+    </form>
   </div>
 </div>
