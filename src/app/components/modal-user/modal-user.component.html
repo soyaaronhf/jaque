@@ -30,10 +30,30 @@
           Información básica
         </p>
         <form class="modal__form">
-          <input class="modal__input" type="text" placeholder="Nombre">
-          <input class="modal__input" type="text" placeholder="Apellido Paterno">
-          <input class="modal__input" type="text" placeholder="Apellido Materno">
-          <input class="modal__input" type="text" placeholder="Correo electrónico">
+          <div class="modal__input-content">
+            <label class="modal__input-label">
+              <input class="modal__input" type="text">
+              <span>Nombre</span>
+            </label>
+          </div>
+          <div class="modal__input-content">
+            <label class="modal__input-label">
+              <input class="modal__input" type="text">
+              <span>Apellido Paterno</span>
+            </label>
+          </div>
+          <div class="modal__input-content">
+            <label class="modal__input-label">
+              <input class="modal__input" type="text">
+              <span>Apellido Materno</span>
+            </label>
+          </div>
+          <div class="modal__input-content">
+            <label class="modal__input-label">
+              <input class="modal__input" type="text">
+              <span>Correo electrónico</span>
+            </label>
+          </div>
           <select class="modal__select">
             <option>Rol</option>
             <option *ngFor="let rol of getRoles(userService.roles)">

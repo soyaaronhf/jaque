@@ -16,6 +16,10 @@
   box-sizing: border-box;
 }
 
+*:focus{
+  outline-color: #FA6A00;
+}
+
 html {
   font-family: CircularStd, sans-serif;
   line-height: 1.15;
