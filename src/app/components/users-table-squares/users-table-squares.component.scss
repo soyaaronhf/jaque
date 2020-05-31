@@ -1,0 +1,88 @@
+@import "../../../variables";
+.users-table-squares{
+  &__container{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 30px;
+  }
+  &__card{
+    flex: 0 0 calc(100%/4);
+    max-width: calc(100%/4);
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-bottom: 25px;
+    @media screen and (max-width:$break-lg){
+      flex: 0 0 calc(100%/3);
+      max-width: calc(100%/3);
+    }
+    @media screen and (max-width:$break-md){
+      flex: 0 0 calc(100%/2);
+      max-width: calc(100%/2);
+    }
+  }
+  &__content{
+    padding: 25px;
+    position: relative;
+    border:1px solid $border-color;
+    cursor: pointer;
+    &:hover{
+      background: $input-bg;
+      box-shadow: 0 0 16px rgba(0,0,0,0.04);
+    }
+  }
+  &__dragger{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  &__img-container{
+    width: 95px;
+    height: 95px;
+    display: block;
+    overflow: hidden;
+    border-radius: 50%;
+    position: relative;
+    margin:0 auto 25px;
+  }
+  &__img{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+  &__name{
+    color: $users-table-list-color;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 18px;
+    margin:0 0 15px;
+    text-align: center;
+  }
+  &__email, &__rol{
+    color: $users-table-list-color;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: normal;
+    text-align: center;
+  }
+  &__separator{
+    border:.5px solid $border-color;
+  }
+  &__actions{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  &__buttons{
+    justify-content: flex-end;
+    display: flex;
+  }
+  &__button{
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+  &__icon{
+    width: 20px;
+  }
+}

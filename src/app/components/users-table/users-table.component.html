@@ -1,13 +1,22 @@
 <div class="users-table__container">
   <app-users-table-header
     (keyword)="userService.search($event)"
+    (view)="changeView($event)"
   ></app-users-table-header>
   <app-users-table-list
+    *ngIf="view==='list'"
     [data]="!userService.results ? userService.users : userService.results"
     [roles]="userService.roles"
     (changeUserStatus)="userService.changeStatus($event)"
     (deleteUser)="userService.deleteUser($event)"
   ></app-users-table-list>
+  <app-users-table-squares
+    *ngIf="view==='squares'"
+    [data]="!userService.results ? userService.users : userService.results"
+    [roles]="userService.roles"
+    (changeUserStatus)="userService.changeStatus($event)"
+    (deleteUser)="userService.deleteUser($event)"
+  ></app-users-table-squares>
 </div>
 <app-modal-active-users></app-modal-active-users>
 <app-modal-user *ngIf="modalService.modals && modalService.modals.user"></app-modal-user>

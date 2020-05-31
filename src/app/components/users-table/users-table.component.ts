@@ -9,6 +9,12 @@ import { ModalService } from 'src/app/services/modal.service';
 })
 export class UsersTableComponent {
   
+  view:string='list'
+
   constructor(public userService:UserService, public modalService:ModalService) { }
+
+  changeView(view:string){
+    this.view = view;
+  }
 
 }

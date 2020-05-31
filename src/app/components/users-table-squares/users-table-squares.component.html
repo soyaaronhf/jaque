@@ -1,0 +1,33 @@
+<div *ngIf="!results" class="users-table-squares__container">
+  <div class="users-table-squares__card" *ngFor="let user of data">
+    <div class="users-table-squares__content">
+      <span class="users-table-squares__dragger">
+        <img src="assets/users/points.svg" alt="points">
+      </span>
+      <div class="users-table-squares__img-container">
+        <img class="users-table-squares__img" [src]="user.picture" alt="picture">
+      </div>
+      <p class="users-table-squares__name">
+          {{ user.name + ' ' +  user.fathersLastName + ' ' + user.mothersLastName | excerpt:20 }}
+      </p>
+      <p class="users-table-squares__email">
+        {{user.email | excerpt:26 }}
+      </p>
+      <p class="users-table-squares__rol">
+        {{ roles[user.roleId] }}
+      </p>
+      <hr class="users-table-squares__separator">
+      <div class="users-table-squares__actions">
+        <app-toggle-button (change)="changeStatus(user)" [status]="user.active"></app-toggle-button>
+        <div class="users-table-squares__buttons">
+          <button (click)="modalService.showModal('user',user)" class="users-table-squares__button mr-10">
+            <img class="users-table-squares__icon" src="assets/users/edit.svg" alt="edit">
+          </button>
+          <button (click)="delete(user)" class="users-table-squares__button">
+            <img class="users-table-squares__icon" src="assets/users/trash.svg" alt="trash">
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

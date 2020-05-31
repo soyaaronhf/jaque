@@ -13,6 +13,7 @@ import { ToggleButtonComponent } from './toggle-button/toggle-button.component';
 import { ModalActiveUsersComponent } from './modal-active-users/modal-active-users.component';
 import { ModalUserComponent } from './modal-user/modal-user.component';
 import { MessageComponent } from './message/message.component';
+import { UsersTableSquaresComponent } from './users-table-squares/users-table-squares.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { MessageComponent } from './message/message.component';
     ToggleButtonComponent,
     ModalActiveUsersComponent,
     ModalUserComponent,
-    MessageComponent
+    MessageComponent,
+    UsersTableSquaresComponent
   ],
   imports: [
     CommonModule,
