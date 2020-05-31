@@ -39,7 +39,7 @@
           {{ roles[user.roleId] }}
         </td>
         <td>
-          {{ user.active }}
+          <app-toggle-button (change)="changeStatus(user)" [status]="user.active"></app-toggle-button>
         </td>
         <td>
           Actions

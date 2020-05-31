@@ -5,5 +5,6 @@
   <app-users-table-list
     [data]="!userService.results ? userService.users : userService.results"
     [roles]="userService.roles"
+    (changeUserStatus)="userService.changeStatus($event)"
   ></app-users-table-list>
 </div>

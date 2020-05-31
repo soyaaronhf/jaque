@@ -8,6 +8,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import { UsersTableHeaderComponent } from './users-table-header/users-table-header.component';
 import { UsersTableListComponent } from './users-table-list/users-table-list.component';
 import { ExcerptPipe } from '../pipes/excerpt.pipe';
+import { ToggleButtonComponent } from './toggle-button/toggle-button.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { ExcerptPipe } from '../pipes/excerpt.pipe';
     UsersTableComponent,
     UsersTableHeaderComponent,
     UsersTableListComponent,
-    ExcerptPipe
+    ExcerptPipe,
+    ToggleButtonComponent
   ],
   imports: [
     CommonModule,

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { User } from 'src/app/services/users.service';
 
 @Component({
@@ -6,14 +6,20 @@ import { User } from 'src/app/services/users.service';
   templateUrl: './users-table-list.component.html',
   styleUrls: ['./users-table-list.component.scss']
 })
-export class UsersTableListComponent implements OnInit {
+export class UsersTableListComponent {
+
+  @Output() changeUserStatus: EventEmitter<User>;
+
 
   @Input() data:User[];
   @Input() roles:object;
   
-  constructor() { }
+  constructor() {
+    this.changeUserStatus = new EventEmitter();
+  }
 
-  ngOnInit(): void {
+  changeStatus(user:User){
+    this.changeUserStatus.emit(user);
   }
 
 }
