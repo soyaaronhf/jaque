@@ -1,9 +1,9 @@
-<div *ngIf="modalService.modals && modalService.modals.user" class="modal__overlay">
+<div class="modal__overlay">
   <div class="modal__wrapper">
     <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="modal__container">
       <div class="modal__header">
         <h4 class="modal__title">
-          Agregar nuevo usuario
+          {{ !modalService.tempUser ? 'Agregar nuevo usuario' : 'Editar usuario' }}
         </h4>
       </div>
       <div class="modal__body">
@@ -12,7 +12,8 @@
         </p>
         <div class="modal__profile-picture-container">
           <div class="modal__img-container">
-            <img src="assets/header/user.png" alt="profile picture" class="modal__img">
+            <img *ngIf="modalService.tempUser" [src]="modalService.tempUser.picture" alt="profile picture" class="modal__img picture">
+            <img *ngIf="!modalService.tempUser" src="assets/header/user.png" alt="profile picture" class="modal__img">
             <div class="modal__img-edit">
               <img src="assets/users/edit.svg" alt="edit">
             </div>

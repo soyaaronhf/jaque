@@ -16,9 +16,7 @@ export class UserService {
   
   getUsers() {
     this.http.get<User[]>(this.usersUrl).subscribe(
-      (data: any) => this.users = data.users.map((user,i)=>{
-        return{ id:i++,...user}
-      }),
+      (data: any) => this.users = data.users,
       error => this.error = error
     );
   }
@@ -51,6 +49,10 @@ export class UserService {
 
   newUser(user:User){
     this.users.push(user);
+  }
+
+  updateUser(current:User,newData:User){
+    this.users[this.users.indexOf(current)] = newData;
   }
 }
 

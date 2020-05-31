@@ -1,6 +1,6 @@
-import { Component, Input } from '@angular/core';
-import { User } from 'src/app/services/users.service';
+import { Component } from '@angular/core';
 import { UserService } from "src/app/services/users.service";
+import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
   selector: 'app-users-table',
@@ -9,9 +9,6 @@ import { UserService } from "src/app/services/users.service";
 })
 export class UsersTableComponent {
   
-  constructor(public userService:UserService) { }
-
-  ngOnInit(): void {
-  }
+  constructor(public userService:UserService, public modalService:ModalService) { }
 
 }

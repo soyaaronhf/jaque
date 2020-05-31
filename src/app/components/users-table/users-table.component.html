@@ -10,5 +10,5 @@
   ></app-users-table-list>
 </div>
 <app-modal-active-users></app-modal-active-users>
-<app-modal-user></app-modal-user>
+<app-modal-user *ngIf="modalService.modals && modalService.modals.user"></app-modal-user>
 <app-message></app-message>

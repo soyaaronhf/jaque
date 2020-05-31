@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef, AfterViewInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ModalService } from 'src/app/services/modal.service';
 import { UserService } from 'src/app/services/users.service';
@@ -8,14 +8,14 @@ import { MessageService } from 'src/app/services/message.service';
   templateUrl: './modal-user.component.html',
   styleUrls: ['./modal-user.component.scss']
 })
-export class ModalUserComponent {
+export class ModalUserComponent implements AfterViewInit{
 
   regxEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,6}$/;
   error:boolean = false
 
   profileForm = new FormGroup({
     picture: new FormControl('http://www.fillmurray.com/200/300'),
-    name: new FormControl('',[ Validators.required, Validators.minLength(3) ]),
+    name: new FormControl('',[ Validators.required,Validators.minLength(3) ]),
     fathersLastName: new FormControl('',[ Validators.required, Validators.minLength(3) ]),
     mothersLastName: new FormControl('',[ Validators.required, Validators.minLength(3) ]),
     email: new FormControl('',[ Validators.required, Validators.minLength(8), Validators.pattern(this.regxEmail) ]),
@@ -26,8 +26,24 @@ export class ModalUserComponent {
   constructor(
     public modalService:ModalService,
     public userService:UserService,
-    public messageService:MessageService
+    public messageService:MessageService,
+    private cdr: ChangeDetectorRef
     ) {
+  }
+
+  ngAfterViewInit() {
+    if(this.modalService.tempUser){
+      this.profileForm.setValue({
+        picture: this.modalService.tempUser.picture,
+        name: this.modalService.tempUser.name,
+        fathersLastName: this.modalService.tempUser.fathersLastName,
+        mothersLastName: this.modalService.tempUser.mothersLastName,
+        email: this.modalService.tempUser.email,
+        roleId: this.modalService.tempUser.roleId,
+        active: this.modalService.tempUser.active,
+      })
+    }
+    this.cdr.detectChanges();
   }
 
   getRoles(roles:object){
@@ -41,14 +57,21 @@ export class ModalUserComponent {
 
   onSubmit(){
     if(this.profileForm.valid){
+
       this.error = false
-      this.userService.newUser(this.profileForm.value);
+
+      if(!this.modalService.tempUser){
+        this.userService.newUser(this.profileForm.value);
+      }else{
+        this.userService.updateUser(this.modalService.tempUser,this.profileForm.value);
+      }
       this.modalService.closeModal('user');
       this.cleanForm();
       this.messageService.showMessage('Se guardó el usuario exitosamente');
       setTimeout(() => {
         this.messageService.closeMessage()
       }, 2000);
+
     }else{
       this.error = true
     }

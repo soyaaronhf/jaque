@@ -42,7 +42,7 @@
           <app-toggle-button (change)="changeStatus(user)" [status]="user.active"></app-toggle-button>
         </td>
         <td>
-          <button class="users-table-list__button mr-10">
+          <button (click)="modalService.showModal('user',user)" class="users-table-list__button mr-10">
             <img class="users-table-list__icon" src="assets/users/edit.svg" alt="edit">
           </button>
           <button (click)="delete(user)" class="users-table-list__button">
