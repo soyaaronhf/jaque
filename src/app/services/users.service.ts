@@ -10,7 +10,7 @@ export class UserService {
   error: any;
   users: User[] = [];
   roles: object = {};
-  results: User[] | boolean = false;
+  results: User[];
 
   constructor(private http: HttpClient) { }
   
@@ -35,11 +35,14 @@ export class UserService {
   }
 
   search( keyword:any ){
-    this.results = keyword ? this.users.filter(user => user.name.toLowerCase().search(keyword) >= 0 || user.email.toLowerCase().search(keyword) >= 0) : false
+    this.results = keyword ? this.users.filter(user => user.name.toLowerCase().search(keyword) >= 0 || user.email.toLowerCase().search(keyword) >= 0) : null
   }
   
   deleteUser( user:User ){
-    this.users.splice(this.users.indexOf(user), 1);
+    this.users.splice(this.users.findIndex(u=>u===user), 1);
+    if(this.results && this.results.length){
+      this.results.splice(this.results.findIndex(u=>u===user), 1);
+    }
   }
 
   changeStatus( user:User ){

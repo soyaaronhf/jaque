@@ -1,4 +1,4 @@
-<div *ngIf="modalService.modals.user" class="modal__overlay">
+<div *ngIf="modalService.modals && modalService.modals.user" class="modal__overlay">
   <div class="modal__wrapper">
     <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="modal__container">
       <div class="modal__header">
@@ -76,7 +76,7 @@
         <small>Parece que hay algunos errores</small>
       </div>
       <div class="modal__actions">
-        <button class="modal__close-btn mr-20" (click)="cleanForm();modalService.closeModal('user')">
+        <button type="button" class="modal__close-btn mr-20" (click)="cleanForm();modalService.closeModal('user')">
           Cancelar
         </button>
         <button class="modal__orange-btn" type="submit">
