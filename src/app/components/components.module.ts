@@ -14,6 +14,7 @@ import { ModalActiveUsersComponent } from './modal-active-users/modal-active-use
 import { ModalUserComponent } from './modal-user/modal-user.component';
 import { MessageComponent } from './message/message.component';
 import { UsersTableSquaresComponent } from './users-table-squares/users-table-squares.component';
+import { UsersTablePaginatorComponent } from './users-table-paginator/users-table-paginator.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { UsersTableSquaresComponent } from './users-table-squares/users-table-sq
     ModalActiveUsersComponent,
     ModalUserComponent,
     MessageComponent,
-    UsersTableSquaresComponent
+    UsersTableSquaresComponent,
+    UsersTablePaginatorComponent
   ],
   imports: [
     CommonModule,

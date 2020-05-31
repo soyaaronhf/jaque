@@ -1,15 +1,17 @@
 <div class="users-table__container">
   <app-users-table-header
-    (keyword)="userService.search($event)"
     (view)="changeView($event)"
-    (filter)="filter($event)"
+    (filter)="userService.filter($event)"
+    (pagination)="setPerPage($event)"
   ></app-users-table-header>
   <app-users-table-list
     *ngIf="view==='list'"
-    [data]="!filterData ? !userService.results ? userService.users : userService.results : filterData"
+    [data]="!userService.results ? userService.users : userService.results"
     [roles]="userService.roles"
     (changeUserStatus)="userService.changeStatus($event)"
     (deleteUser)="userService.deleteUser($event)"
+    [perPage]="perPage"
+    [page]="page"
   ></app-users-table-list>
   <app-users-table-squares
     *ngIf="view==='squares'"
@@ -17,8 +19,16 @@
     [roles]="userService.roles"
     (changeUserStatus)="userService.changeStatus($event)"
     (deleteUser)="userService.deleteUser($event)"
+    [perPage]="perPage"
+    [page]="page"
   ></app-users-table-squares>
 </div>
+<app-users-table-paginator
+  (paginate)="setPage($event)"
+  [perPage]="perPage"
+  [page]="page"
+  [totalItems]="!userService.results ? userService.users.length : userService.results.length"
+  ></app-users-table-paginator>
 <app-modal-active-users></app-modal-active-users>
 <app-modal-user *ngIf="modalService.modals && modalService.modals.user"></app-modal-user>
 <app-message></app-message>

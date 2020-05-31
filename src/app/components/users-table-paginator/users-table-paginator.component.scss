@@ -1,0 +1,44 @@
+@import "../../../variables";
+.user-table-paginator{
+  &__container{
+    width: fit-content;
+    display: grid;
+    margin: 50px auto 0;
+    grid-template-columns: auto auto auto;
+  }
+  &__list{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  &__item{
+    display: inline-grid;
+    font-size: 14px;
+    line-height: 18px;
+    color: $navbar-msg-color;
+    height: 20px;
+    width: 20px;
+    margin: 0 5px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    &.active{
+      background: $toggle-button-bg-active;
+      border-radius: 50%;
+      color: white;
+    }
+  }
+  &__label{
+    font-size: 14px;
+    line-height: 18px;
+    color: $orange;
+    margin: 0 10px;
+    opacity: .5;
+    pointer-events: none;
+    &.active{
+      opacity: 1;
+      cursor: pointer;
+      pointer-events:initial;
+    }
+  }
+}

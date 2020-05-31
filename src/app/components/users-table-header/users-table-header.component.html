@@ -1,12 +1,14 @@
 <div class="users-table-header__container">
   <div class="users-table-header__search">
     <img class="users-table-header__search-icon" src="assets/users/search.svg" alt="search icon">
-    <input #inputSearch (keyup)="search(inputSearch.value)" class="users-table-header__input" type="text" placeholder="Búsqueda">
+    <input #inputSearch (keyup)="setfilter({keyword:inputSearch.value})" class="users-table-header__input" type="text" placeholder="Búsqueda">
   </div>
   <div class="users-table-header__filter">
     <div>
-      <select class="users-table-header__select mr-10">
-        <option value="8">8 por página</option>
+      <select #selectPerPage (change)="setPagination(selectPerPage.value)" class="users-table-header__select mr-10">
+        <option value="5">5 por página</option>
+        <option value="8" selected>8 por página</option>
+        <option value="12">12 por página</option>
       </select>
       <select #selectOrder (change)="setfilter({order:selectOrder.value})" class="users-table-header__select mr-10">
         <option selected disabled>Orden</option>

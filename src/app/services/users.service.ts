@@ -31,10 +31,6 @@ export class UserService {
       error => this.error = error
     );
   }
-
-  search( keyword:any ){
-    this.results = keyword ? this.users.filter(user => user.name.toLowerCase().search(keyword) >= 0 || user.email.toLowerCase().search(keyword) >= 0) : null
-  }
   
   deleteUser( user:User ){
     this.users.splice(this.users.findIndex(u=>u===user), 1);
@@ -53,6 +49,32 @@ export class UserService {
 
   updateUser(current:User,newData:User){
     this.users[this.users.indexOf(current)] = newData;
+  }
+
+  filter(params:any){
+    this.results = this.users;
+    if(params.rol && params.rol!=='all'){
+      this.results = this.results.filter(u=>u.roleId==params.rol)
+    }
+    if(params.order){
+      if(params.order=='a-z'){
+        this.results = this.results.sort((a, b)=> {
+          if(a.name < b.name) { return -1; }
+          if(a.name > b.name) { return 1; }
+          return 0;
+        });
+      }
+      if(params.order=='z-a'){
+        this.results = this.results.sort((a, b)=> {
+          if(a.name < b.name) { return 1; }
+          if(a.name > b.name) { return -1; }
+          return 0;
+        });
+      }
+    }
+    if(params.keyword){
+      this.results = this.results.filter(user => user.name.toLowerCase().search(params.keyword) >= 0 || user.email.toLowerCase().search(params.keyword) >= 0)
+    }
   }
 }
 

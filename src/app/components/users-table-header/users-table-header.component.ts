@@ -7,24 +7,16 @@ import { Component, Output, EventEmitter } from '@angular/core';
 })
 export class UsersTableHeaderComponent {
   
-  @Output() keyword: EventEmitter<string>;
   @Output() view: EventEmitter<string>;
   @Output() filter: EventEmitter<object>;
+  @Output() pagination: EventEmitter<number>;
 
   filterParams:object = null
 
   constructor(){
-    this.keyword = new EventEmitter();
     this.view = new EventEmitter();
     this.filter = new EventEmitter();
-  }
-
-  search( keyword:string ){    
-    if(keyword.trim().length){
-      this.keyword.emit(keyword.toLowerCase());
-    }else{
-      this.keyword.emit(null);
-    }
+    this.pagination = new EventEmitter();
   }
 
   changeView( view:string ){
@@ -34,7 +26,10 @@ export class UsersTableHeaderComponent {
   setfilter(filter:object){
     this.filterParams = {...this.filterParams,...filter}
     this.filter.emit(this.filterParams);
-    console.log(this.filterParams);
+  }
+
+  setPagination(perPage:string){
+    this.pagination.emit(parseInt(perPage));
   }
 
 }

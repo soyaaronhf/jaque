@@ -1,0 +1,14 @@
+<div class="user-table-paginator__container">
+  <a (click)="setPage(page-1)" [class.active]="page>1" class="user-table-paginator__label">Anterior</a>
+  <ul class="user-table-paginator__list">
+    <li
+      *ngFor="let i of getNumberOfPages();let indx = index"
+      [class.active]="indx+1===page"
+      class="user-table-paginator__item"
+      (click)="setPage(indx+1)"
+    >
+      {{indx+1}}
+    </li>
+  </ul>
+  <a (click)="setPage(page+1)" [class.active]="page<getNumberOfPages().length" class="user-table-paginator__label">Siguiente</a>
+</div>
